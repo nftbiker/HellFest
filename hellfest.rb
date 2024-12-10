@@ -46,10 +46,10 @@ def generate_json(groups, output_file)
   end
 end
 
-dirname = ARGV[0] || "./2025"
+dirname = ARGV[0] || "2025"
 
 groups = []
-Dir.glob("#{dirname}/*.md").each do |filename|
+Dir.glob(File.join("./src", dirname, "*.md")).each do |filename|
   groups.concat(parse_markdown(filename))
 end
 name = File.basename(dirname, ".*") + ".json"
